@@ -10,20 +10,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  void onFabTap() {
-    final snackBar = SnackBar(
-      content: Text('FAB was tapped'),
-      /*action: SnackBarAction(
+  @override
+  Widget build(BuildContext context) {
+    void onFabTap() {
+      const snackBar = SnackBar(
+        content: Text('FAB was tapped'),
+        /*action: SnackBarAction(
         label: 'OK',
         onPressed: () {},
       ),*/
-    );
-    ScaffoldMessenger.of(this).removeCurrentSnackBar();
-    ScaffoldMessenger.of(this).showSnackBar(snackBar);
-  }
-  
-  @override
-  Widget build(BuildContext context) {
+      );
+      ScaffoldMessenger.of(context).removeCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -31,8 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
+          children: const [
+            Text(
               'Flutter Base',
               style: TextStyle(fontSize: 20),
             ),
